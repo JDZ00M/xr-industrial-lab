@@ -5,11 +5,51 @@
   </head>
   <body>
     <a-scene>
-      <a-box position="0 1 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="2 1 -4" radius="1" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="-2 1 -4" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+
+     
+
+      <!-- Piso -->
       <a-plane rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
+
+      <!-- Paredes -->
+      <a-box position="0 2 -5" width="10" height="4" depth="0.2" color="#cccccc"></a-box>
+      <a-box position="-5 2 0" width="0.2" height="4" depth="10" color="#cccccc"></a-box>
+      <a-box position="5 2 0" width="0.2" height="4" depth="10" color="#cccccc"></a-box>
+
+      <!-- Techo -->
+      <a-box position="0 4 0" width="10" height="0.2" depth="10" color="#aaaaaa"></a-box>
+
+      <!-- ===== TANQUE 1 ===== -->
+      <a-entity position="-2 0 -2">
+
+        <a-cylinder position="0 1 0" radius="0.8" height="2" color="#888"></a-cylinder>
+        <a-cylinder position="0 2 0" radius="0.82" height="0.1" color="#666"></a-cylinder>
+        <a-cylinder position="0 0.1 0" radius="0.9" height="0.2" color="#444"></a-cylinder>
+
+        <!-- Sensor -->
+        <a-sphere position="0.8 1.5 0" radius="0.15" color="red" animation="property: scale; to: 1.2 1.2 1.2; dir: alternate; loop: true; dur: 800"></a-sphere>
+
+      </a-entity>
+
+      <!-- ===== TANQUE 2 ===== -->
+      <a-entity position="2 0 -2">
+
+        <a-cylinder position="0 1 0" radius="0.8" height="2" color="#888"></a-cylinder>
+        <a-cylinder position="0 2 0" radius="0.82" height="0.1" color="#666"></a-cylinder>
+        <a-cylinder position="0 0.1 0" radius="0.9" height="0.2" color="#444"></a-cylinder>
+
+        <!-- Sensor -->
+        <a-sphere position="-0.8 1.5 0" radius="0.15" color="blue" animation="property: scale; to: 1.2 1.2 1.2; dir: alternate; loop: true; dur: 800">></a-sphere>
+
+      </a-entity>
+
+      <!-- Iluminación -->
+      <a-light type="ambient" intensity="0.5"></a-light>
+      <a-light type="directional" position="2 4 2" intensity="0.8"></a-light>
+
+      <!-- Cielo -->
       <a-sky color="#ECECEC"></a-sky>
+
     </a-scene>
   </body>
 </html>
