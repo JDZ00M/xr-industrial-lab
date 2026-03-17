@@ -6,7 +6,10 @@
   <body>
     <a-scene>
 
-     
+      <!-- ===== ASSETS ===== -->
+      <a-assets>
+        <a-asset-item id="modelo" src="models/RV.glb"></a-asset-item>
+      </a-assets>
 
       <!-- Piso -->
       <a-plane rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
@@ -19,29 +22,39 @@
       <!-- Techo -->
       <a-box position="0 4 0" width="10" height="0.2" depth="10" color="#aaaaaa"></a-box>
 
-      <!-- ===== TANQUE 1 ===== -->
-      <a-entity position="-2 0 -2">
-
-        <a-cylinder position="0 1 0" radius="0.8" height="2" color="#888"></a-cylinder>
-        <a-cylinder position="0 2 0" radius="0.82" height="0.1" color="#666"></a-cylinder>
-        <a-cylinder position="0 0.1 0" radius="0.9" height="0.2" color="#444"></a-cylinder>
-
-        <!-- Sensor -->
-        <a-sphere position="0.8 1.5 0" radius="0.15" color="red" animation="property: scale; to: 1.2 1.2 1.2; dir: alternate; loop: true; dur: 800"></a-sphere>
-
+      <!-- ===== MODELO GLB ===== -->
+      <a-entity 
+        gltf-model="#modelo" 
+        position="-1.5 0 -3"
+        scale="0.25 0.25 0.25"
+        rotation="0 0 0">
       </a-entity>
 
-      <!-- ===== TANQUE 2 ===== -->
-      <a-entity position="2 0 -2">
+<!-- ===== TANQUE 1 ===== -->
+<a-entity position="-3 0 -2">
 
-        <a-cylinder position="0 1 0" radius="0.8" height="2" color="#888"></a-cylinder>
-        <a-cylinder position="0 2 0" radius="0.82" height="0.1" color="#666"></a-cylinder>
-        <a-cylinder position="0 0.1 0" radius="0.9" height="0.2" color="#444"></a-cylinder>
+  <a-cylinder position="0 1 0" radius="0.8" height="2" color="#888"></a-cylinder>
+  <a-cylinder position="0 2 0" radius="0.82" height="0.1" color="#666"></a-cylinder>
+  <a-cylinder position="0 0.1 0" radius="0.9" height="0.2" color="#444"></a-cylinder>
 
-        <!-- Sensor -->
-        <a-sphere position="-0.8 1.5 0" radius="0.15" color="blue" animation="property: scale; to: 1.2 1.2 1.2; dir: alternate; loop: true; dur: 800">></a-sphere>
+  <a-sphere position="0.8 1.5 0" radius="0.15" color="red"
+    animation="property: scale; to: 1.2 1.2 1.2; dir: alternate; loop: true; dur: 800">
+  </a-sphere>
 
-      </a-entity>
+</a-entity>
+
+<!-- ===== TANQUE 2 ===== -->
+<a-entity position="3 0 -2">
+
+  <a-cylinder position="0 1 0" radius="0.8" height="2" color="#888"></a-cylinder>
+  <a-cylinder position="0 2 0" radius="0.82" height="0.1" color="#666"></a-cylinder>
+  <a-cylinder position="0 0.1 0" radius="0.9" height="0.2" color="#444"></a-cylinder>
+
+  <a-sphere position="-0.8 1.5 0" radius="0.15" color="blue"
+    animation="property: scale; to: 1.2 1.2 1.2; dir: alternate; loop: true; dur: 800">
+  </a-sphere>
+
+</a-entity>
 
       <!-- Iluminación -->
       <a-light type="ambient" intensity="0.5"></a-light>
