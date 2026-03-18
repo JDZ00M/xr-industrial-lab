@@ -5,16 +5,17 @@
   </head>
   <body>
     <a-scene>
+
       <a-entity camera position="0 1.6 2" wasd-controls look-controls></a-entity>
-      <!-- ===== ASSETS ===== -->
+
       <a-assets>
-        <a-asset-item id="modelo" src="models/RV.glb"></a-asset-item>
+        <a-asset-item id="modelo" src="models/r2d2.glb"></a-asset-item>
       </a-assets>
 
-      <!-- Piso -->
+     
       <a-plane rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
 
-      <!-- Paredes -->
+      
       <a-box position="0 2 -5" width="10" height="4" depth="0.2" color="#cccccc"></a-box>
       <a-box position="-5 2 0" width="0.2" height="4" depth="10" color="#cccccc"></a-box>
       <a-box position="5 2 0" width="0.2" height="4" depth="10" color="#cccccc"></a-box>
@@ -22,10 +23,10 @@
       <!-- Techo -->
       <a-box position="0 4 0" width="10" height="0.2" depth="10" color="#aaaaaa"></a-box>
 
-      <!-- ===== MODELO GLB ===== -->
+      
       <a-entity 
         gltf-model="#modelo" 
-        position="-1.5 0 -3"
+        position="-1 0 -3"
         scale="0.25 0.25 0.25"
         rotation="0 0 0">
       </a-entity>
