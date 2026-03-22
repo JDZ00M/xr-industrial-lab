@@ -2,60 +2,80 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
+
+    <!-- Controles VR (joystick Quest) -->
+    <script src="https://unpkg.com/aframe-thumbstick-controls-component@3.0.1/dist/aframe-thumbstick-controls-component.min.js"></script>
+
+    <!-- Controles táctiles celular -->
+    <script src="https://unpkg.com/aframe-touch-controls-component@0.3.1/dist/aframe-touch-controls-component.min.js"></script>
   </head>
+
   <body>
     <a-scene>
 
-      <a-entity camera position="0 1.6 2" wasd-controls look-controls></a-entity>
+      <!-- ===== RIG MULTIPLATAFORMA ===== -->
+      <a-entity id="rig" position="0 1.6 5"
+        wasd-controls="acceleration: 20"
+        touch-controls="speed: 0.15">
 
+        <!-- Cámara -->
+        <a-entity camera look-controls></a-entity>
+
+        <!-- Control izquierdo (movimiento VR) -->
+        <a-entity 
+          laser-controls="hand: left"
+          thumbstick-controls="movementSpeed: 3">
+        </a-entity>
+
+        <!-- Control derecho -->
+        <a-entity laser-controls="hand: right"></a-entity>
+
+      </a-entity>
+
+      <!-- Assets -->
       <a-assets>
         <a-asset-item id="modelo" src="models/r2d2.glb"></a-asset-item>
       </a-assets>
 
-     
-      <a-plane rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
+      <!-- Piso -->
+      <a-plane rotation="-90 0 0" width="20" height="20" color="#7BC8A4"></a-plane>
 
-      
-      <a-box position="0 2 -5" width="10" height="4" depth="0.2" color="#cccccc"></a-box>
-      <a-box position="-5 2 0" width="0.2" height="4" depth="10" color="#cccccc"></a-box>
-      <a-box position="5 2 0" width="0.2" height="4" depth="10" color="#cccccc"></a-box>
+      <!-- Paredes -->
+      <a-box position="0 3 -10" width="20" height="6" depth="0.2" color="#cccccc"></a-box>
+      <a-box position="-10 3 0" width="0.2" height="6" depth="20" color="#cccccc"></a-box>
+      <a-box position="10 3 0" width="0.2" height="6" depth="20" color="#cccccc"></a-box>
 
       <!-- Techo -->
-      <a-box position="0 4 0" width="10" height="0.2" depth="10" color="#aaaaaa"></a-box>
+      <a-box position="0 6 0" width="20" height="0.2" depth="20" color="#aaaaaa"></a-box>
 
-      
+      <!-- Modelo GLB -->
       <a-entity 
         gltf-model="#modelo" 
         position="-1 0 -3"
-        scale="0.25 0.25 0.25"
-        rotation="0 0 0">
+        scale="0.25 0.25 0.25">
       </a-entity>
 
-<!-- ===== TANQUE 1 ===== -->
-<a-entity position="-3 0 -2">
+      <!-- TANQUE 1 -->
+      <a-entity position="-3 0 -2">
+        <a-cylinder position="0 1 0" radius="0.8" height="2" color="#888"></a-cylinder>
+        <a-cylinder position="0 2 0" radius="0.82" height="0.1" color="#666"></a-cylinder>
+        <a-cylinder position="0 0.1 0" radius="0.9" height="0.2" color="#444"></a-cylinder>
 
-  <a-cylinder position="0 1 0" radius="0.8" height="2" color="#888"></a-cylinder>
-  <a-cylinder position="0 2 0" radius="0.82" height="0.1" color="#666"></a-cylinder>
-  <a-cylinder position="0 0.1 0" radius="0.9" height="0.2" color="#444"></a-cylinder>
+        <a-sphere position="0.8 1.5 0" radius="0.15" color="red"
+          animation="property: scale; to: 1.2 1.2 1.2; dir: alternate; loop: true; dur: 800">
+        </a-sphere>
+      </a-entity>
 
-  <a-sphere position="0.8 1.5 0" radius="0.15" color="red"
-    animation="property: scale; to: 1.2 1.2 1.2; dir: alternate; loop: true; dur: 800">
-  </a-sphere>
+      <!-- TANQUE 2 -->
+      <a-entity position="3 0 -2">
+        <a-cylinder position="0 1 0" radius="0.8" height="2" color="#888"></a-cylinder>
+        <a-cylinder position="0 2 0" radius="0.82" height="0.1" color="#666"></a-cylinder>
+        <a-cylinder position="0 0.1 0" radius="0.9" height="0.2" color="#444"></a-cylinder>
 
-</a-entity>
-
-<!-- ===== TANQUE 2 ===== -->
-<a-entity position="3 0 -2">
-
-  <a-cylinder position="0 1 0" radius="0.8" height="2" color="#888"></a-cylinder>
-  <a-cylinder position="0 2 0" radius="0.82" height="0.1" color="#666"></a-cylinder>
-  <a-cylinder position="0 0.1 0" radius="0.9" height="0.2" color="#444"></a-cylinder>
-
-  <a-sphere position="-0.8 1.5 0" radius="0.15" color="blue"
-    animation="property: scale; to: 1.2 1.2 1.2; dir: alternate; loop: true; dur: 800">
-  </a-sphere>
-
-</a-entity>
+        <a-sphere position="-0.8 1.5 0" radius="0.15" color="blue"
+          animation="property: scale; to: 1.2 1.2 1.2; dir: alternate; loop: true; dur: 800">
+        </a-sphere>
+      </a-entity>
 
       <!-- Iluminación -->
       <a-light type="ambient" intensity="0.5"></a-light>
